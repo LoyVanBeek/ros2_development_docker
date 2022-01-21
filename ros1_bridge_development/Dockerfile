@@ -6,8 +6,8 @@ RUN apt update && apt install -yy -q \
   ros-noetic-actionlib-tutorials \
   && rm -rf /var/lib/apt/lists/*
 
-RUN git clone git@github.com:ros2/demos.git /root/ros2_ws/src/demos
-RUN cd /root/ros2_ws/src/demos
-RUN git remote add ruffsl git@github.com:ruffsl/demos.git
+RUN git clone https://github.com/ros2/demos /root/ros2_ws/src/demos
+WORKDIR /root/ros2_ws/src/demos
+RUN git remote add ruffsl https://github.com/ruffsl/demos
 RUN git fetch ruffsl
 RUN git checkout ruffsl/master/bridge_action_tutorials_interfaces
